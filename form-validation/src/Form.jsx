@@ -110,6 +110,7 @@ function Form({formData, setFormData, errors, setErrors}) {
           type="text"
           name="email"
           value={formData.email}
+          onChange={handleChange}
           placeholder="Email"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
@@ -119,6 +120,8 @@ function Form({formData, setFormData, errors, setErrors}) {
         <input
           type="text"
           name="phone"
+          value={formData.phone}
+          onChange={handleChange}
           placeholder="Phone Number"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
@@ -128,41 +131,72 @@ function Form({formData, setFormData, errors, setErrors}) {
       {/* Order Information */}
       <div className="space-y-2">
         <p className="font-medium text-gray-700">Order Information</p>
+
+        {/* Order ID */}
         <input
           type="text"
+          name="orderId"
+          value={formData.orderId}
+          onChange={handleChange}
           placeholder="Order ID"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
+        {errors.orderId && <p className="text-red-500 text-sm">{errors.orderId}</p>}
+
+        {/* Quantity */}
         <input
           type="text"
-          placeholder="Product Name"
-          className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <input
-          type="text"
+          name="quantity"
+          value={formData.quantity}
+          onChange={handleChange}
           placeholder="Quantity"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
+        {errors.quantity && <p className="text-red-500 text-sm">{errors.quantity}</p>}
+
+        {/* Price */}
         <input
           type="text"
+          name="price"
+          value={formData.price}
+          onChange={handleChange}
           placeholder="Price"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
+        {errors.price && <p className="text-red-500 text-sm">{errors.price}</p>}
+
+        {/* Payment Method */}
         <input
           type="text"
+          name="paymentMethod"
+          value={formData.paymentMethod}
+          onChange={handleChange}
           placeholder="Payment Method"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
+        {errors.paymentMethod && <p className="text-red-500 text-sm">{errors.paymentMethod}</p>}
+
+        {/* Delivery Address */}
         <input
           type="text"
+          name="deliveryAddress"
+          value={formData.deliveryAddress}
+          onChange={handleChange}
           placeholder="Delivery Address"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
+        {errors.deliveryAddress && <p className="text-red-500 text-sm">{errors.deliveryAddress}</p>}
+
+        {/* Order Status */}
         <input
           type="text"
+          name="orderStatus"
+          value={formData.orderStatus}
+          onChange={handleChange}
           placeholder="Order Status"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
+        {errors.orderStatus && <p className="text-red-500 text-sm">{errors.orderStatus}</p>}
       </div>
 
       {/* Submit Button */}
