@@ -1,6 +1,39 @@
-function Form() {
+function Form({formData, setFormData, errors, setErrors}) {
+
+    //To update field dynamically
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name] : value
+        }));
+
+        //Clear error on handleChange
+        setErrors(prev => ({
+            ...prev,
+            [name]: ""
+        }));
+
+    };
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        const newErrors = {};
+
+        //Validation rules
+        if(!formData.name.trim()){
+            newErrors.name = "Name is required";
+        }
+
+        if(!formData.email.trim()){
+            newErrors.email = "Email is required";
+        }else if(!formData.email.includes("@")){
+            newErrors.email = "Invalid email address";
+        }
+    }
+
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md space-y-6">
+    <form className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md space-y-6">
       {/* Header */}
       <div className="text-center">
         <p className="text-2xl font-semibold text-gray-800">Order/Delivery Tracking</p>
@@ -71,7 +104,7 @@ function Form() {
       <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors">
         Submit
       </button>
-    </div>
+    </form>
   );
 }
 
