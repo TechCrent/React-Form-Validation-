@@ -34,6 +34,47 @@ function Form({formData, setFormData, errors, setErrors}) {
             newErrors.email = "Invalid email address";
         }
 
+        //For phone number input
+        if(!formData.phone.trim()){
+            newErrors.phone = "Phone number is required";
+        }else if(isNaN(formData.phone)){
+            newErrors.phone = "Phone number must be numeric";
+        }
+
+        //For orderID input
+        if(!formData.orderId.trim()){
+            newErrors.orderId = "order ID is required";
+        }
+
+        //For quantity input
+        if(!formData.quantity.trim()){
+            newErrors.quantity = "Quantity is required";
+        }else if(isNaN(formData.quantity)){
+            newErrors.quantity = "Quantity must be a number";
+        }
+
+        //For price input
+        if(!formData.price.trim()){
+            newErrors.price = "Price is required";
+        }else if(isNaN(formData.price)){
+            newErrors.price = "Price must be a number";
+        }
+
+        //For Payment Method input
+        if(!formData.paymentMethod.trim()){
+            newErrors.paymentMethod = "Payment method is required";
+        }
+
+        //For Delivery Address input
+        if(!formData.deliveryAddress.trim()){
+            newErrors.deliveryAddress = "Delivery address is required";
+        }
+
+        //For Order Status input
+        if(!formData.orderStatus.trim()){
+            newErrors.orderStatus = "Order Status is required";
+        }
+
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0){
