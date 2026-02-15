@@ -1,4 +1,4 @@
-function Form({formData, setFormData, errors, setErrors}) {
+function Form({formData, setFormData, errors, setErrors, setSubmitted}) {
 
     //To update field dynamically
     const handleChange = (e) => {
@@ -78,7 +78,7 @@ function Form({formData, setFormData, errors, setErrors}) {
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0){
-            console.log("Form submitted: ", formData)
+            setSubmitted(true);
         }
     }
 
