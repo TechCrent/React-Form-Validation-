@@ -1,21 +1,32 @@
-import './App.css'
-import Form from './Form.jsx'
-import {useState} from 'react'
+import './App.css';
+import Form from './Form.jsx';
+import { useState } from 'react';
 
 function App() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    orderId: "",
+    quantity: "",
+    price: "",
+    paymentMethod: "",
+    deliveryAddress: "",
+    orderStatus: "",
+  });
 
-  const [name, setName] = useState("");
-  const [error, setError] = useState("");
-
+  const [errors, setErrors] = useState({});
 
   return (
     <>
-      <Form 
-        name = {name}
-        setName = {setName}
+      <Form
+        formData={formData}
+        setFormData={setFormData}
+        errors={errors}
+        setErrors={setErrors}
       />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
