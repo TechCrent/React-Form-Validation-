@@ -1,8 +1,13 @@
 function Validated(){
     return(
-        <div className="max-w-md mx-auto m p-6 bg-white shadow-md rounded-md ">
-          <p className="text-center mt-20 text-2xl font-semibold text-green-500">Form Submitted!</p>
-        </div>
+<div className="min-h-screen flex items-center justify-center bg-gray-50">
+  <div className="bg-white p-10 rounded-2xl shadow-lg text-center max-w-sm w-full">
+    <h2 className="text-3xl font-semibold text-green-600">
+      Form Submitted!
+    </h2>
+  </div>
+</div>
+
     );
 }
 
